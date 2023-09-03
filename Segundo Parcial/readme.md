@@ -1,4 +1,5 @@
-- PRIMER PARCIAL: CLASES Y ACTIVIDADES COMPLEMENTARIAS.
+# Integracion_Sistemas_Plataforma_9noA
+- DEGUNDO PARCIAL: CLASES Y ACTIVIDADES COMPLEMENTARIAS.
 - Facultad: Ciencias de la Vida y Tecnología.
 - Carrera: Ingeniería en Tecnologías de la Información.
 - Nombres y Apellidos: Winter Aníbal Meza Jiménez.
