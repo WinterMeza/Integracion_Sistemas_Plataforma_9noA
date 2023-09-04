@@ -1,6 +1,6 @@
 # Integracion_Sistemas_Plataforma_9noA.
 - PRIMER PARCIAL: CLASES Y ACTIVIDADES COMPLEMENTARIAS.
-- Facultad: Ciencias de la Vida y Tecnología....
+- Facultad: Ciencias de la Vida y Tecnología.
 - Carrera: Ingeniería en Tecnologías de la Información.
 - Nombres y Apellidos: Winter Aníbal Meza Jiménez.
 - Curso: Noveno "A" 2023(2).
