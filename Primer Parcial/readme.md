@@ -1,4 +1,4 @@
-# Integracion_Sistemas_Plataforma_9noA
+# Integracion_Sistemas_Plataforma_9noA.
 - PRIMER PARCIAL: CLASES Y ACTIVIDADES COMPLEMENTARIAS.
 - Facultad: Ciencias de la Vida y Tecnología.
 - Carrera: Ingeniería en Tecnologías de la Información.
