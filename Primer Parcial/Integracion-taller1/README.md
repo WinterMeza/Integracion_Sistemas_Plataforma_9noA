@@ -54,4 +54,12 @@ Dentro de la carpeta frontend:
 ```
 docker run -p 8080:3000 productos-frontend
 ```
+## Pruebas de Ejecución
+- Envio de datos desde el backend usando el método POST
+![Alt text](image-1.png)
+
+- Ejecucion y envio de datos del Frontend
 ![Ejecucion del taller práctico](image.png)
+
+- Envio de datos ejecutando desde Docker
+![Alt text](image-2.png)
