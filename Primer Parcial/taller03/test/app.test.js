@@ -1,68 +1,76 @@
-const env_variables = require('dotenv').config()
-env_variables
+const env_variables = require("dotenv").config();
+env_variables;
 
-const request = require('supertest')
-const mongoose = require('mongoose')
+const request = require("supertest");
+const mongoose = require("mongoose");
 
-const app = require('../app')
-const clienteModel = require('../models/cliente.model')
+const app = require("../app");
+//const productModel = require("../models/product.model");
+const commecialOrderModel = require("../models/commercial_order.model");
 
-describe('TESTING APP', () => {
-    beforeAll(async () => {
-        await mongoose.connect(process.env.MONGO_URI)
-    })
+describe("TESTING APP", () => {
+  beforeAll(async () => {
+    jest.setTimeout(600);
+    await mongoose.connect(process.env.MONGO_URI);
+  });
 
-    afterAll(async () => await mongoose.disconnect())
+  afterAll(async () => await mongoose.disconnect());
 
-    describe('/GET testing', () => {
-        test('Debería responder con estado 200 ok', async () => {
-            // Arrange: Configurar el estado inicial si es necesario
+  describe("/GET testing", () => {
+    test("Responde con stado 200 ok", async () => {
+      const response = await request(app)
+        .get("/api/v1/commercial-order")
+        .send();
+      expect(response.status).toBe(200);
+    });
 
-            // Act: Realizar la acción que se está probando
-            const response = await request(app)
-                .get('/api/v1/commercial-order-detail')
-                .send()
+    test("Responde con data ok", async () => {
+      const response = await request(app)
+        .get("/api/v1/commercial-order")
+        .send();
+      expect(response.body).toBeInstanceOf(Object);
+    });
+  });
 
-            // Assert: Comprobar los resultados y expectativas
-            expect(response.status).toBe(200)
-            expect(response.body).toBeInstanceOf(Object)
-        })
-    })
+  describe("/POST testing", () => {
+    beforeAll(() => {
+      jest.setTimeout(600);
+    });
+    afterAll(async () => {
+      await commecialOrderModel.deleteMany({
+        ci_client: "6f8a1e2b9dc35b001c6c1e36",
+      });
+    });
 
-    describe('/POST testing', () => {
-        afterEach(async () => {
-            await clienteModel.deleteMany({
-                ci_client: '6f8a1e2b9dc35b001c6c1e35',
-            })
-        })
+    const data = {
+      proforma: "6f8a1e2b9dc35b001c6c1e36",
+      contract_number: "0938273425",
+      id_client: "6f8a1e2b9dc35b001c6c1e35",
+      id_destiny: "6f8a1e2b9dc35b001c6c1e35",
+      id_brand: "6f8a1e2b9dc35b001c6c1e35",
+      id_kind: "6f8a1e2b9dc35b001c6c1e35",
+      id_type_container: "6f8a1e2b9dc35b001c6c1e35",
+      id_lid: "6f8a1e2b9dc35b001c6c1e35",
+      id_liquid_hedging: "6f8a1e2b9dc35b001c6c1e35",
+      id_cardboard: "6f8a1e2b9dc35b001c6c1e35",
+      container_box: 50,
+      date: "12/02/2023",
+      date_entry: "12/02/2023",
+      observations: "ninguna",
+    };
 
-        test('Debería responder con estado 201 ok', async () => {
-            // Arrange: Configurar el estado inicial si es necesario
-            const data = {
-                proforma: '182-2023',
-                id_product: '6f8a1e2b9dc35b001c6c1e35',
-                id_tag: '5f8a1e2b9df35b001c6c2e29',
-                container_number: 2402,
-                box_number: 24,
-                box_amount: 50,
-                id_container_size: '8f8a1e2b9df35b001c6c2e29',
-                id_lid_type: '7f8a1e2b9df35b001c6c2e29',
-                net_weight: 5,
-                drained_weight: 10,
-                oil: 10,
-                water: 20,
-                loins: 50,
-                crumbs: 100,
-            }
+    test("Responde con stado 201 ok", async () => {
+      const response = await request(app)
+        .post("/api/v1/commercial-order")
+        .send();
+      expect(response.status).toBe(201);
+    });
 
-            // Act: Realizar la acción que se está probando
-            const response = await request(app)
-                .post('/api/v1/commercial-order-detail')
-                .send(data)
-
-            // Assert: Comprobar los resultados y expectativas
-            expect(response.status).toBe(201)
-            expect(response.body.commercialOrderDetail._id).toBeDefined()
-        })
-    })
-})
+    test("Responde con datos insertados", async () => {
+      const response = await request(app)
+        .post("/api/v1/commercial-order")
+        .send(data);
+      expect(response.body.commercialOrder._id).toBeDefined();
+    });
+  });
+});

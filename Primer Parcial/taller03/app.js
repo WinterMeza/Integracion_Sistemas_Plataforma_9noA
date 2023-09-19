@@ -6,6 +6,7 @@ const productRouter = require("./routes/product.route");
 const clientRouter = require("./routes/client.route");
 const supplyRequiredRouter = require("./routes/supply_required.route");
 const commercialOrderDetailRouter = require("./routes/commercial_order_detail.route");
+const commercialOrderRouter = require("./routes/commercial_order.route");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/client", clientRouter);
 app.use("/api/v1/supply-required", supplyRequiredRouter);
 app.use("/api/v1/commercial-order-detail", commercialOrderDetailRouter);
+app.use("/api/v1/commercial-order", commercialOrderRouter);
 module.exports = app
 
 const PORT = process.env.PORT;

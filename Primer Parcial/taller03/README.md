@@ -27,7 +27,17 @@
 
 ![Alt text](./evidencias/image-1.png)
 
-#### Entidad Orden Comercial
+#### Entidad Order Comercial
+
+-Metodo GET
+
+![Alt text](./evidencias/image-16.png)
+
+-Metodo POST
+
+![Alt text](./evidencias/image-17.png)
+
+#### Entidad Detalle Orden Comercial
 - Metodo POST
 
 ![Alt text](./evidencias/image-6.png)
@@ -53,8 +63,11 @@
 
 ![Alt text](./evidencias/image-11.png)
 
-#### Entidad Orden Comercial
+#### Entidad Detalle Orden Comercial
 ![Alt text](./evidencias/image-10.png)
+
+#### Entidad Orden Comercial
+![Alt text](./evidencias/image-18.png)
 
 #### Entidad Insumo Requerido
 ![Alt text](./evidencias/image-12.png)
@@ -70,6 +83,7 @@
 #### Repositorio creado en Docker Hub
 ![Alt text](./evidencias/image-15.png)
 ![Alt text](./evidencias/image-3.png)
+
 
 
 
