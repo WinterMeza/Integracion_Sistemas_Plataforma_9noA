@@ -1,0 +1,25 @@
+{
+  "name": "integracion-taller1-app",
+  "version": "1.0.0",
+  "description": "Taller 1 de frontend, backend y docker",
+  "main": "app.js",
+  "author": "Aldair, Caroline, Julio, Kevin, Winter",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  }
+}
