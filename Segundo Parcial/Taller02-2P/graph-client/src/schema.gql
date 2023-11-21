@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  name: String!
+  code_erp: String!
+  tipo_item: String!
+  tipo_envase: String!
+  liquido_coberturas: String!
+  unidades_cajas: Int!
+  especie: String!
+  peso_neto: Int!
+  peso_drenado: Float!
+  status: Boolean!
+  createProduct(id: ID!): Product!
+}
+
+type Query {
+  products: [Product!]!
+  producto(id: ID!): Product!
+}
+
+type Mutation {
+  createCliente(createProductInput: CreateProductInput!): Product!
+  updateCliente(id: ID!, updateProductInput: UpdateProductInput!): Product!
+  removeCliente(id: ID!): Product!
+}
+
+input CreateProductInput {
+  name: String!
+  code_erp: String!
+  tipo_item: String!
+  tipo_envase: String!
+  liquido_coberturas: String!
+  unidades_cajas: Int!
+  especie: String!
+  peso_neto: Int!
+  peso_drenado: Int!
+  status: Boolean!
+}
+
+input UpdateProductInput {
+  name: String
+  code_erp: String
+  tipo_item: String
+  tipo_envase: String
+  liquido_coberturas: String
+  unidades_cajas: Int
+  especie: String
+  peso_neto: Int
+  peso_drenado: Int
+  status: Boolean
+  id: ID
+}
