@@ -13,7 +13,7 @@ export class CreateProductInput {
     code_erp: string;
 
     @Field()
-    @IsPositive()
+    @IsNotEmpty()
     tipo_item: string;
 
     @Field()
@@ -21,13 +21,12 @@ export class CreateProductInput {
     tipo_envase: string;
 
     @Field()
-    @IsPositive()
+    @IsNotEmpty()
     liquido_coberturas: string;
 
     @Field(() => Int)
     @IsPositive()
     unidades_cajas: number;
-
 
     @Field()
     @IsNotEmpty()
@@ -37,10 +36,11 @@ export class CreateProductInput {
     @IsPositive()
     peso_neto: number;
 
-    @Field(()=>Int)
+    @Field(() => Int)
     @IsPositive()
     peso_drenado: number;
 
-    @Field(()=>Boolean)
+    @Field(() => Boolean)
+    @IsNotEmpty()
     status: true;
 }

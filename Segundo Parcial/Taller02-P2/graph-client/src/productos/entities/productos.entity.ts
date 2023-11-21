@@ -1,7 +1,7 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Double } from 'mongodb';
 import mongoose, { Document, Types } from 'mongoose';
+import { Transaccion } from './transaccion.entity';
 
 @ObjectType()
 @Schema()
@@ -46,6 +46,10 @@ export class Product extends Document {
     @Field(()=>Boolean)
     @Prop()
     status: true;
+
+    @Field(() => [Transaccion], { nullable: true })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Transaccion' }] })
+    transacciones?: Types.Array<Transaccion>;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

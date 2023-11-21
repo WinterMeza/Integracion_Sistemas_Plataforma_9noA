@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Transaccion {
+  monto: Int!
+  producto: ID!
+}
+
 type Product {
   name: String!
   code_erp: String!
@@ -13,6 +18,7 @@ type Product {
   peso_neto: Int!
   peso_drenado: Float!
   status: Boolean!
+  transacciones: [Transaccion!]
   createProduct(id: ID!): Product!
 }
 
@@ -22,9 +28,10 @@ type Query {
 }
 
 type Mutation {
-  createCliente(createProductInput: CreateProductInput!): Product!
-  updateCliente(id: ID!, updateProductInput: UpdateProductInput!): Product!
-  removeCliente(id: ID!): Product!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(id: ID!, updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: ID!): Product!
+  createTransaccion(productoId: ID!, monto: Int!): Transaccion!
 }
 
 input CreateProductInput {

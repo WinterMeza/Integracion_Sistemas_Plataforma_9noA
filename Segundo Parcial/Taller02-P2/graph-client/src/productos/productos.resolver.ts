@@ -3,13 +3,14 @@ import { ProductService } from './productos.service';
 import { Product } from './entities/productos.entity';
 import { UpdateProductInput, CreateProductInput } from './dto/inputs';
 import { ParseUUIDPipe, NotFoundException } from '@nestjs/common';
+import { Transaccion } from './entities/transaccion.entity';
 
 @Resolver(() => Product)
 export class ProductResolver {
     constructor(private readonly productService: ProductService) { }
 
     @Mutation(() => Product)
-    async createCliente(@Args('createProductInput') createProductInput: CreateProductInput): Promise<Product> {
+    async createProduct(@Args('createProductInput') createProductInput: CreateProductInput): Promise<Product> {
         const createdProduct = await this.productService.create(createProductInput);
         return createdProduct;
     }
@@ -51,7 +52,7 @@ export class ProductResolver {
     }
 
     @Mutation(() => Product)
-    async updateCliente(
+    async updateProduct(
         @Args('id', { type: () => ID }) id: string, 
         @Args('updateProductInput') updateProductInput: UpdateProductInput
     ): Promise<Product> {
@@ -63,12 +64,20 @@ export class ProductResolver {
     }
 
     @Mutation(() => Product)
-    async removeCliente(@Args('id', { type: () => ID }) id: string): Promise<Product> {
+    async removeProduct(@Args('id', { type: () => ID }) id: string): Promise<Product> {
         const deletedProduct = await this.productService.remove(id)
         if (!deletedProduct) {
             throw new NotFoundException(`Client with ID ${id} not found`);
         }
         return deletedProduct
+    }
+
+    @Mutation(() => Transaccion)
+    async createTransaccion(
+        @Args('productoId', { type: () => ID }) productoId: string,
+        @Args('monto', { type: () => Int }) monto: number,
+    ): Promise<Transaccion> {
+        return this.productService.createTransaccion(productoId, monto);
     }
 
 }
