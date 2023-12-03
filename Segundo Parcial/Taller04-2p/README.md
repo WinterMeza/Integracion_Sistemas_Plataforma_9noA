@@ -32,23 +32,23 @@ Código fuen te subido al repositorio.
 
 Configurar los secretos `Docker_User` y `Docker_Password` en GitHub para asegurar la autenticación.
 
-![Alt text](image3.png)
+![Alt text](../Taller04-2p/imagen/image3.png)
 
 Agregamos un nuevo secret y luego tendremos los secrets creados dentro del repositorio.
 
-![Alt text](image4.png)
+![Alt text](../Taller04-2p/imagen/image4.png)
 
 ### Generación de Token en Docker Hub
 
 Es necesario crear un token en Docker Hub, el cual deberá ser copiado para su uso posterior como `Docker_Password`.
 
-![Alt text](image5.png)
+![Alt text](../Taller04-2p/imagen/image5.png)
 
-![Alt text](image5.1.png)
+![Alt text](../Taller04-2p/imagen/image5.1.png)
 
 Token creado en Docker Hub
 
-![Alt text](image5.2.png)
+![Alt text](../Taller04-2p/imagen/image5.2.png)
 
 ### Docker y Docker Hub
 
@@ -57,18 +57,18 @@ Dockerizamos el codigo y creamos la imagen en Docker Hub:
 ```
 docker build --target dev-deps -t tagname .
 ```
-![Alt text](image06.png)
+![Alt text](../Taller04-2p/imagen/image06.png)
 
 ```
 docker build --target builder -t tagname .
 ```
-![Alt text](image6.1.png)
+![Alt text](../Taller04-2p/imagen/image6.1.png)
 
 ```
 docker build --target prod-deps -t tagname .
 ```
 
-![Alt text](image6.2.png)
+![Alt text](../Taller04-2p/imagen/image6.2.png)
 
 ```
 docker build --target prod -t tagname .
@@ -76,23 +76,23 @@ docker build --target prod -t tagname .
 ```
 docker build --tag wintermeza/practica04:latest
 ```
-![Alt text](image-1.png)
+![Alt text](../Taller04-2p/imagen/image-1.png)
 
 ```
 docker push wintermeza/practica04:latest
 ```
-![Alt text](image7.png)
+![Alt text](../Taller04-2p/imagen/image7.png)
 
-![Alt text](image7.1.png)
+![Alt text](../Taller04-2p/imagen/image7.1.png)
 
 ### Agregar el Workflow
 
-![Alt text](image-2.png)
+![Alt text](../Taller04-2p/imagen/image-2.png)
 
-![Alt text](image-3.png)
+![Alt text](../Taller04-2p/imagen/image-3.png)
 
 Realizamos cambios en el repositorio para mostrar que el Actions y el Docker Hub realizan los cambios correctamente
 
-![Alt text](image-4.png)
+![Alt text](../Taller04-2p/imagen/image-4.png)
 
-![Alt text](image-5.png)
+![Alt text](../Taller04-2p/imagen/image-5.png)
